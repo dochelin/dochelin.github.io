@@ -26,24 +26,24 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">집 위치보기</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">주차장[1]</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">주차장[2]</a></li>
+    <li role="presentation" onClick="changeMap(0);"class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">집 위치보기</a></li>
+    <li role="presentation" onClick="changeMap(1);"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">주차장[1]</a></li>
+    <li role="presentation" onClick="changeMap(2);"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">주차장[2]</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home" onClick=" changeMap(0)">
+    <div role="tabpanel" class="tab-pane active" id="home" >
     	<!-- 집위치 보기 -->
     	<div></div>
     	<div id="map0" style="width:100%;min-height:550px;"></div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile" onClick=" changeMap(1);">
+    <div role="tabpanel" class="tab-pane" id="profile">
     	<!-- 주차장 1 -->
     	<div></div>
     	<div id="map1" style="width:100%;min-height:550px;" ></div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="messages" onClick=" changeMap(2);">
+    <div role="tabpanel" class="tab-pane" id="messages">
     	<!-- 주차장 2 -->
     	<div></div>
     	<div id="map2" style="width:100%;min-height:550px;" ></div>
