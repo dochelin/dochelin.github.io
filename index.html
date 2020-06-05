@@ -22,63 +22,22 @@
 
 </head>
 <body>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne" onclick="changeMap(0)">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          집 위치
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-		<div id="map0" style="width:100%;min-height:550px;"></div>
-		<a href='daummaps://route?sp=37.534414,127.004720&ep=37.566600,126.985240'>찾아가기</a>
-      </div>
-    </div>
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">집 위치보기</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">주차장[1]</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">주차장[2]</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">1</div>
+    <div role="tabpanel" class="tab-pane" id="profile">2</div>
+    <div role="tabpanel" class="tab-pane" id="messages">3</div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo" onclick="changeMap(1)">
-      <h4 class="panel-title">
-        <a id="testCall" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          주차장[1] : 둔치주차장 (무료)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-      	<div>
-      		<span><a href='daummaps://route?sp=37.40091114809426,126.97222227254878&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      		<span><a href='daummaps://route?sp=37.40091114809426,126.97222227254878&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      		<span><a href='daummaps://route?sp=37.40091114809426,126.97222227254878&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      	</div>
-	  	<div id="map1" style="width:100%;min-height:550px;"></div>
-	
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree"  onclick="changeMap(2)">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          주차장 [2] : 공영주차타워 (주말 무료)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-      <div>
-      	<span><a href='daummaps://route?sp=37.39893855940596,126.97513396685414&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      	<span><a href='daummaps://route?sp=37.39893855940596,126.97513396685414&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      	<span><a href='daummaps://route?sp=37.39893855940596,126.97513396685414&ep=37.4008933665645,126.97325850836258'>찾아가기</a></span>
-      </div>
-      
-		<div id="map2" style="width:100%;min-height:550px;"></div>	
-		
-      </div>
-    </div>
-  </div>
+
 </div>
 </body>
 
