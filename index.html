@@ -40,7 +40,7 @@
     		(지번) 관양동 1483-40
     		범신파인빌 5층
     		<br>
-    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal0">상세보기</button>
+    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal0" onClick = "getRaodView(0);">상세보기</button>
     	</div>
     	<div id="map0" style="width:100%;min-height:550px;"></div>
     </div>
@@ -49,7 +49,7 @@
     	<div style="padding-left: 1em; font-size: 1.3em;">
     		주소 : 경기 안양시 동안구 관양동 830
     		<br>
-    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal0">상세보기</button>
+    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" onClick = "getRaodView(1);">상세보기</button>
     		<button type="button" class="btn btn-primary">
     			<a style = "color: #ffffff;text-decoration: none;" href='daummaps://route?sp=37.40091114809426,126.97222227254878&ep=37.4008933665645,126.97325850836258'>앱으로 찾아가기</a>
     		</button>
@@ -57,12 +57,12 @@
     	<div id="map1" style="width:100%;min-height:550px;" ></div>
     </div>
     <div role="tabpanel" class="tab-pane" id="messages">
-    	<!-- 주차장 2 --> a {
+    	<!-- 주차장 2 -->
     	<div style="padding-left: 1em; font-size: 1.3em;">
     		주소 : 경기도 안양시 동안구 흥안대로507번길 23<br>
     		(지번) 경기 안양시 동안구 관양동 1497
     		<br>
-    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal0">상세보기</button>
+    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" onClick = "getRaodView(2);">상세보기</button>
     		<button type="button" class="btn btn-primary">
     			<a style = "color: #ffffff;text-decoration: none;" href='daummaps://route?sp=37.39893855940596,126.97513396685414&ep=37.4008933665645,126.97325850836258'>앱으로 찾아가기</a>
     		</button>
@@ -80,6 +80,7 @@
         <h4 class="modal-title" id="myModalLabel">집 상세보기</h4>
       </div>
       <div class="modal-body">
+      	<div id="roadview0" style="width:100%;height:500px;"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -93,9 +94,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">집 상세보기</h4>
+        <h4 class="modal-title" id="myModalLabel">주차장[1] 상세보기</h4>
       </div>
       <div class="modal-body">
+      	<div id="roadview1" style="width:100%;height:500px;"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,9 +111,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">집 상세보기</h4>
+        <h4 class="modal-title" id="myModalLabel">주차장[2] 상세보기</h4>
       </div>
       <div class="modal-body">
+        <div id="roadview2" style="width:100%;height:500px;"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -135,6 +138,41 @@
 
 <script>
 
+	
+	function getRaodView(idx){
+		
+		setTimeout(function(){
+			var position = null;
+			
+			
+			switch(idx){
+			case 0:
+				
+				position =  new kakao.maps.LatLng(37.4008933665645, 126.97325850836258);
+				
+				break;
+			case 1:
+				position =  new kakao.maps.LatLng(37.40091114809426,126.97222227254878);
+				break;
+				
+			case 2:
+				
+				position =  new kakao.maps.LatLng(37.39893855940596,126.97513396685414);
+				break;
+			}
+			
+			var roadviewContainer = document.getElementById('roadview'+idx);
+
+			var roadview = new kakao.maps.Roadview(roadviewContainer);
+			
+			var roadviewClient = new kakao.maps.RoadviewClient();
+			
+			
+			roadviewClient.getNearestPanoId(position, 50, function(panoId) {
+			    roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
+			});
+		},100);
+	}
 	
 	function changeMap(idx){
 
