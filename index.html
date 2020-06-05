@@ -103,14 +103,14 @@
 
 		mapOption.center = markerPosition;
 
-		setMap(mapContainer, mapOption);
+		setMap(mapContainer, mapOption, idx );
 		},500);
 
 
 	}
 
 
-	function setMap(mapCon, mapOpt){
+	function setMap(mapCon, mapOpt, idx ){
 		
 		var map = new kakao.maps.Map(mapCon, mapOpt); // 지도를 생성합니다
 		
@@ -122,11 +122,18 @@
 
 		marker.setMap(map);
 		
-		marker = new kakao.maps.Marker({
-			position : new kakao.maps.LatLng(37.4008933665645, 126.97325850836258)
-		});
-		
-		marker.setMap(map);
+		if(idx != 0 ){
+			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		    var imageSize = new kakao.maps.Size(24, 35); 
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+			marker = new kakao.maps.Marker({
+				position : new kakao.maps.LatLng(37.4008933665645, 126.97325850836258),
+				image : markerImage
+			});
+			
+			marker.setMap(map);
+		}
+
 	}
 
 
